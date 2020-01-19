@@ -99,17 +99,34 @@ print(maximum([]))
 
 # Ultimate Analysis - Create a function that takes a list and returns a dictionary that has the sumTotal, average, minimum, maximum and length of the list.
 
+def createDict(x):
 
-def createdictionary(x):
-    dict = {}
-    sum = 0
-    min = 0
+    result = {
+        'sum' : 0,
+        'min' : None,
+        'max' : None,
+        'Avg' : None,
+        'length': 0
+    }
     y = len(x)
-    for i in range (0,y,1):
-        sum = sum + x[i]
-     return sum
-    for i in range (0,y,1):
-        if x[i] < min:
-            min = x[i]
-    return min
-    avg = float(sum)/y
+    if y == 0:
+        return result
+    else:
+        result['sum'] = 0
+        result['max'] = x[0]
+        result['min'] = x[0]
+
+    for val in x:
+        if val > result['max']:
+            result['max'] = val
+        elif val < result['min']:
+            result['min'] = val
+        result['sum'] = result['sum'] + val
+        result['length'] = result['length'] + 1
+    result['Avg'] = float (result ['sum'])/y
+    return result
+
+print(createDict([1, 2, 3, 4, 5, 0]))
+print(createDict([]))
+
+
