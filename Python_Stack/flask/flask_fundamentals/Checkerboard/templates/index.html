@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>Checker-Board</title>
+    <style>
+      table tr td{
+        height: 50px;
+        width: 50px;
+      }
+      .color1{
+        background-color: {{colorx}};
+      }
+      .color2{
+        background-color: {{colory}};
+      }
+
+      </style>
+  </head>
+  <body>
+    <div class="container">
+
+      <table>
+      {% for i in range(num_rows): %}
+        <tr>
+          {% for j in range(num_cols): %}
+          <td class="color{{(i+j)%2 +1}}"> </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+      </table>
+
+    </div>
+  </body>
+</html>
