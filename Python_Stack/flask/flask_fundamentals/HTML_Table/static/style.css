@@ -1,0 +1,36 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.container{
+  margin: 50px auto;
+  /* width: 800px; */
+  /* height: 300px; */
+}
+
+.htmltable {
+    width: 330px;
+     border: 1px solid grey;
+     border-collapse: collapse;
+     margin-left: 200px
+     }
+
+th {
+  border: 1px solid grey;
+  border-collapse: collapse;
+}
+
+tr {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  font-stretch: expanded;
+  font-size-adjust: auto;
+  text-align: center;
+
+}
