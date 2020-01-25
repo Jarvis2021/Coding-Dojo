@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Form Post </title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+  </head>
+  <body>
+    <h1>Index Page</h1>
+    <h3>Create a User</h3>
+    <form class="userpage" action="/users" method="post">
+      Name: <input type="text" name="name">
+      Email: <input type="text" name="email">
+      <input type="submit" value="create user">
+
+    </form>
+
+  </body>
+</html>
