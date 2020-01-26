@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Dojo Survey Result </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      .container{
+        width: 500px;
+        border: 1px solid black;
+        margin: 40px auto;
+        padding: 10px auto;
+        height: 350px;
+      }
+      h3{
+        padding: 10px;
+        margin-left: 20px;
+        font-family: sans-serif;
+      }
+      p{
+        margin-left: 10px;
+        font-size: 16px;
+        font-color: blue;
+
+      }
+      input[type=button], input[type=submit]{
+          background-color: green;
+          border: 1px solid;
+          color: white;
+          width: 80px;
+          font-size: 14px;
+          margin-left: 380px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3> <u> Submitted Info </u> </h3>
+      <p> Name: {{results_captured['Your Name:']}}</p>
+      <p> Locations: {{results_captured['locations']}}</p>
+      <p> Language: {{results_captured['languages']}}</p>
+      <p> Favorite Color: {{results_captured['color']}}</p>
+      <p> Favorite Food: {{results_captured.getlist('food')}}</p>
+      <p> Comment: {{results_captured['comment']}}</p>
+      <input type="submit" name="Go Back" value="Go Back">
+    </div>
+
+  </body>
+</html>

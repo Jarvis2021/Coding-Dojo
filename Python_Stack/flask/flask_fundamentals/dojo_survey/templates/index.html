@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dojo Survey Index Form</title>
+    <style>
+      .container{
+        margin: 50px auto;
+        border: 1px solid black;
+        width: 700px;
+        height: 600px;
+      }
+      .forms{
+        margin-left:2px;
+        padding: 10px auto;
+      }
+      .container h1{
+        text-align: center;
+        padding: 10px auto;
+      }
+      input[type=button], input[type=submit] {
+          background-color: #4CAF50;
+          border: 1px solid;
+          color: white;
+          margin: 4px 2px;
+          width: 60px;
+          font-size: 14px;
+          margin-left: 20px;
+        }
+        h5{
+          font-weight: bold;
+          text-emphasis: none;
+          font-size:15px;
+          margin-left:15px;
+          font-family: sans-serif;
+        }
+        input[type=textarea] {
+          width: 150px;
+          box-sizing: border-box;
+        }
+        .favorite{
+          margin-left: 10px;
+        }
+        p{
+          font-weight: strong;
+          text-emphasis: none;
+          font-size:15px;
+          font-family: sans-serif;
+        }
+        input[type=checkbox] {
+          width: 25px;
+          box-sizing: border-box;
+          font-family: sans-serif;
+
+        }
+        input[type=radio] {
+          width: 25px;
+          box-sizing: border-box;
+          font-family: serif;
+        }
+        select {
+          width: 140px;
+          margin-left: 10px;
+          border: 0.2px solid grey;
+        }
+        input[type=text] {
+          width: 140px;
+          margin-left: 10px;
+          border: 0.5px solid grey;
+          border-radius: none;
+        }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1> Dojo Survey </h1>
+      <div class="forms">
+        <form action="/results" method="post">
+          <h5> Your Name: <input type="text" name="Your Name:"></h5>
+          <h5>
+            Favorite Locations:
+              <select name="locations">
+                <option value=" "> </option>
+                <option value="New York">New York</option>
+                <option value="SFO">SFO</option>
+                <option value="Boston">Boston</option>
+                <option value="DC">DC</option>
+              </select>
+          </h5>
+          <h5>
+            Favorite Language:
+              <select name="languages">
+                <option value=" "> </option>
+                <option value="Pyton">Python</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Java">Java</option>
+                <option value="C">C</option>
+              </select>
+          </h5>
+          <div class="favorite">
+            <p> Please select your Favorite Color: </p>
+            <input type="radio" id="color1" name="color" value="Orange">
+            <label for="color1">Orange</label><br>
+            <input type="radio" id="color2" name="color" value="Yellow">
+            <label for="color2">Yellow</label><br>
+            <input type="radio" id="color3" name="color" value="Green">
+            <label for="color3">Green</label><br>
+            <input type="radio" id="color4" name="color" value="Blue">
+            <label for="color4">Blue</label><br>
+            <p> Please select your Favorite Food:</p>
+            <input type="checkbox" name="food" value="Biryan"> Biryani <br>
+            <input type="checkbox" name="food" value="Burgrer"> Burger <br>
+            <input type="checkbox" name="food" value="Pasta"> Pasta <br>
+            <input type="checkbox" name="food" value="Idly"> Idly <br>
+          </div>
+          <h5> Comment (optional): <input type="text" name="comment"></h5>
+          <input type="submit" name="submit">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
