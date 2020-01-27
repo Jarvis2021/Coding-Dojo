@@ -6,15 +6,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
       .container{
-        width: 500px;
+        width: 700px;
+        overflow-y: scroll;
         border: 1px solid black;
         margin: 40px auto;
         padding: 10px auto;
-        height: 500px;
+        height: 450px;
       }
-      h3{
+      h4{
+        text-align: center;
         padding: 10px;
-        margin-left: 20px;
+        margin-left: 0px;
         font-family: sans-serif;
       }
       p{
@@ -29,10 +31,9 @@
           color: white;
           width: 80px;
           font-size: 14px;
-          margin-left: 380px;
+          margin-left: 540px;
         }
       p food{
-
           margin-left: 10px;
           width: 200px;
         }
@@ -40,7 +41,7 @@
   </head>
   <body>
     <div class="container">
-      <h3> <u> Submitted Info </u> </h3>
+      <h4> <u> Submitted Info </u> </h4>
       <p> Name: {{results_captured['Your Name:']}}</p>
       <p> Locations: {{results_captured['locations']}}</p>
       <p> Language: {{results_captured['languages']}}</p>
@@ -53,7 +54,10 @@
         </ul>
       </p>
       <p> Comment: {{results_captured['comment']}}</p>
-      <input type="submit" name="Go Back" value="Go Back">
+      <p>
+        <a href="/"><input type="submit" name="Go Back" value="Go Back"></a>
+      </p>
+
     </div>
 
   </body>
