@@ -8,6 +8,7 @@ def index():
 
 @app.route('/results', methods=['POST','GET'])
 def result():
+    print(request.form)
     return render_template("results.html", results_captured = request.form)
 
 if __name__ == '__main__':
