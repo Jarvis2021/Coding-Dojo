@@ -10,7 +10,7 @@
         border: 1px solid black;
         margin: 40px auto;
         padding: 10px auto;
-        height: 350px;
+        height: 500px;
       }
       h3{
         padding: 10px;
@@ -31,6 +31,11 @@
           font-size: 14px;
           margin-left: 380px;
         }
+      p food{
+
+          margin-left: 10px;
+          width: 200px;
+        }
     </style>
   </head>
   <body>
@@ -40,7 +45,13 @@
       <p> Locations: {{results_captured['locations']}}</p>
       <p> Language: {{results_captured['languages']}}</p>
       <p> Favorite Color: {{results_captured['color']}}</p>
-      <p> Favorite Food: {{results_captured.getlist('food')}}</p>
+      <p class="food"> Favorite Food:
+        <ul>
+          {% for food in results_captured.getlist('food') %}
+          <li> {{food}} </li>
+          {% endfor %}
+        </ul>
+      </p>
       <p> Comment: {{results_captured['comment']}}</p>
       <input type="submit" name="Go Back" value="Go Back">
     </div>
