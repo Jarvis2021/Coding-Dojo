@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Great Number Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap-grid.css">
+    <style media="screen">
+      .container{
+        margin: 40px auto;
+        border: 1px solid black;
+        width: 500px;
+        height: 200px;
+        text-align: center;
+        boder: overflow;
+      }
+      h5{
+        font-size: 15px;
+      }
+      input[type=text]{
+        border: 1px solid grey;
+        width: 90px;
+      }
+      input[type=submit]{
+        border: 1px solid;
+        width: 90px;
+        color: white;
+        font-weight: bold;
+        padding: 5px;
+        background-color: #FF512F;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2> Welcome to the Greate Number Game! </h2>
+      <h4>I am thinking of a number between 1 and 100 </h4>
+      <h5> Take a guess!</h5>
+      <form  method="post">
+        {% if int(session['rand_num']) < 0 %}
+        <h5> {{message_low}}</h5>
+      {% endif %}
+      <input type="text" name="userinput">
+      <a href="/process"></a>  <input type="submit" name="submit" value="Submit">
+    </div>
+  </body>
+</html>
