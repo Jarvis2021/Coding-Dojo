@@ -32,3 +32,6 @@ print(name.isupper())
 
 for x in range(5, 1, -3):
     print(x)
+
+import sys
+print(sys.version)
