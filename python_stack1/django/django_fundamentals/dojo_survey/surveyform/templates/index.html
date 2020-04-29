@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dojo-Survey</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+</head>
+<body>
+  <div class="container">
+    <h1>Fill out the Dojo-Survey form</h1>
+    <div class="userdetails">
+      <form action='/process' method='POST'>
+        {% csrf_token %}
+        <label>Your Name: </label>
+        <input id ="userinput" type="text" name="name"><br><br>
+        <label>Location:</label>
+        <select id="userselection" name="location">
+          <option value="New York">New York</option>
+          <option value="SFO">San Fransisco</option>
+          <option value="Boston">Boston</option>
+          <option value="Seattle">Seattle</option>
+          <option value="Chicago">Chicago</option>
+        </select><br><br>
+        <label>Language: </label>
+        <select id="userselection1" name="language">
+          <option value="c#">C#</option>
+          <option value="javascript">Javascript</option>
+          <option value="python">Python</option>
+          <option value="java">Java</option>
+          <option value="ruby">Ruby</option>
+        </select><br><br>
+        <label>Comments (Optional):</label><br><br>
+        <textarea id="message" name="message" rows="8" cols="50"></textarea><br><br>
+        <input id="processbutton" type="submit" value="View User">
+      </form>
+    </div>
+  </div>
+</body>
+</html>
