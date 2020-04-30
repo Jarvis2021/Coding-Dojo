@@ -12,10 +12,10 @@
   <form action="/" method="GET">
     <div class="container">
       <h1> <u> Submitted Info: </u></h1>
-      <p> Name: {{name}} </p>
-      <p> Location: {{loc}} </p>
-      <p> Language: {{lang}} </p>
-      <p>Comments: {{com}} </p> <br>
+      <p> Name: {{request.session.user_name}} </p>
+      <p> Location: {{request.session.user_location}} </p>
+      <p> Language: {{request.session.user_language}} </p>
+      <p>Comments: {{request.session.user_comment}} </p> <br>
       <input id="home" type="submit" value="Go Back">
     </div>
   </form>
