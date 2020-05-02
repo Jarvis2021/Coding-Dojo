@@ -6,8 +6,11 @@ from django.utils.crypto import get_random_string
 
 
 def random_word(request):
-    count = request.session.get('attempts',0)
-    request.session['attempts'] = count
+    #count = request.session.get('attempts',0)
+    if 'attempts' not in request.session:
+        request.session['attempts'] = 0
+    count = request.session['attempts']
+    #request.session['attempts'] = count
     if request.method == 'GET':
         request.session['newword'] = get_random_string(length=14)
         request.session['attempts'] = count + 1
