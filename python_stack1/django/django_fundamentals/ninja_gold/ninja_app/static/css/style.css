@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    background-color: #b9e1fc;
+    border: 1px solid black;
+    margin-top: 30px;
+    margin-left: 30px;
+    height: 700px;
+    width: 1300px;
+    align-items: center;
+}
+
+
+.container h4{
+    font-family: sans-serif;
+    font-size: 15px;
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+h4 input{
+  margin-left: 20px;
+}
+
+.gametype{
+  display: inline-block;
+  height: 200px;
+  width: 250px;
+  margin-left: 55px;
+  margin-top: 40px;
+  border: 1px solid black;
+  background-color: #ffffe0;
+}
+
+
+.gametype h1{
+  font-size: 20px;
+  font-family: sans-serif;
+  text-align: center;
+  margin-top: 40px;
+
+}
+
+.gametype p{
+  margin-top: 20px;
+  font-size: 17px;
+  text-align: center;
+}
+
+input {
+  margin-top: 40px;
+  margin-left: 90px;
+  font-size: 17px;
+}
+
+.container h3{
+    display: block;
+    font-family: sans-serif;
+    font-size: 15px;
+    text-align: left;
+    margin-top: 80px;
+    margin-left: 20px;
+}
+
+.results {
+  margin-left: 20px;
+  margin-top: 30px;
+  border: 1px solid black;
+  overflow: scroll;
+  width: 600px;
+  height: 100px;
+
+}
+
+.displayuseractivity{
+  font-size: 11px;
+}
+
+button{
+  margin-left: 200px;
+  width: 40px;
+}
+
+#log_out{
+  margin-top: 30px;
+  display: inline-block;
+  margin-left: 1200px;
+  font-family: sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+
+}
