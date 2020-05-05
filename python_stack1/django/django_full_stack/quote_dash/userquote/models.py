@@ -24,7 +24,7 @@ class UserManager(models.Manager):
         if not email_check.match(postdata['email']):
             errors['email'] = "Invalid email address!"
 
-        if len(userexists) > 0:
+        if len(useremail) > 0:
 
             errors['useremail'] = "User has registered with this email already!!"
 
