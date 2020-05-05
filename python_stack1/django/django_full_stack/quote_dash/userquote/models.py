@@ -10,6 +10,8 @@ class UserManager(models.Manager):
         errors = {}
         email_check = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
+        useremail = User.objects.filter(email=postdata['email'])
+
         if len(postdata['fname']) < 2 or len(postdata['lname']) < 2 :
             errors['name'] = "First Name or Last Name should be atleast 2 characters"
 
@@ -22,12 +24,50 @@ class UserManager(models.Manager):
         if not email_check.match(postdata['email']):
             errors['email'] = "Invalid email address!"
 
+        if len(useremail) > 0:
+
+            errors['useremail'] = "User has registered with this email already!!"
+
         return errors
+
+    def edit_validator(self, postdata):
+
+        errors = {}
+
+        useremail = User.objects.filter(email=postdata['email'])
+        userfirstname = User.objects.filter(email=postdata['fname'])
+        userlasttname = User.objects.filter(email=postdata['lname'])
+
+
+        email_check = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
+
+        if len(postdata['fname']) < 2 or len(postdata['lname']) < 2 :
+            errors['name'] = "First Name or Last Name should be atleast 2 characters"
+
+        if not email_check.match(postdata['email']):
+
+            errors['email'] = "Invalid email address!"
+
+        if len(useremail) > 0:
+
+            errors['emailexist'] = "User has registered with this email already!!"
+
+        if len(userfirstname) > 0:
+
+            errors['firstname'] = "There is no change in First Name!!"
+
+        if len(userlasttname) > 0:
+
+            errors['lastname'] = "There is no change in Last Name!!"
+
+        return errors
+
 
 
 class QuoteManager(models.Manager):
 
     def basic_validator(self, postdata):
+
         errors = {}
 
         if len(postdata['authorname']) < 3 :
@@ -61,24 +101,3 @@ class Wall_Quote(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     user_likes = models.ManyToManyField(User, related_name='liked_posts')
     objects = QuoteManager()
-
-
-class Edit_Manager(models.Model):
-
-    def basic_validator(self, postdata):
-        errors = {}
-        email_check = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
-
-        if len(postdata['fname']) < 2 or len(postdata['lname']) < 2 :
-            errors['name'] = "First Name or Last Name should be atleast 2 characters"
-
-        if len(postdata['pwd']) < 8:
-            errors['pwd'] = "Password should be atleast 8 characters"
-
-        if postdata['pwd'] != postdata['confpwd']:
-            errors['pdm'] = "Password and Confirm Password do not match"
-
-        if not email_check.match(postdata['email']):
-            errors['email'] = "Invalid email address!"
-
-        return errors

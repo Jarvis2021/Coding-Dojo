@@ -29,34 +29,32 @@
     </form>
 
     <div class='forms'>
-      <p id="quotesheader"> Quotes </p>
+
+      <p style="margin-left: 200px;"> Quotes </p>
 
       {% for post in author_quotes %}
-
       <div class='one_post'>
-
         <p id="quotearea1" name="message" >{{post.author}}: {{post.message}}</p>
         <p id='poster'>Posted By: <a href="/user_profile/{{post.poster_id}}">{{post.poster.first_name}} {{post.poster.last_name}}</a></p>
         <p id="likes">{{post.user_likes.count}} people like this </p>
-        <a id ="userlikes" href="/like/{{post.id}}"></post>> Like! </a>
-
+        <a id ="userlikes" href="/like/{{post.id}}"></post> Like! </a>
+        {% if request.session.id is post.poster.id %}
+        <a id="deletequote" style="font-size:14px" href="/delete/{{post.id}}"> Delete </a>
+        {% endif %}
       </div>
-
       {% endfor %}
     </div>
-
     <div class="forms">
-    <form action="/process_quote" method='POST'>
-      {% csrf_token %}
-    <p id="addquote"> Add a Quote! </p>
-    <label> Author </label>
-    <input type="text" name="authorname"><br><br>
-    <label> Quote </label>
-    <textarea id="quotearea2" name="userquote" rows="8" cols="80"></textarea>
-    <input id="button2" type="submit" value="Submit">
-    </form>
+      <form action="/process_quote" method='POST'>
+        {% csrf_token %}
+      <p id="addquote"> Add a Quote! </p>
+      <label> Author </label>
+      <input type="text" name="authorname"><br><br>
+      <label> Quote </label>
+      <textarea id="quotearea2" name="userquote" rows="8" cols="80"></textarea>
+      <input id="button2" type="submit" value="Submit">
+      </form>
     </div>
   </div>
-
 </body>
 </html>
