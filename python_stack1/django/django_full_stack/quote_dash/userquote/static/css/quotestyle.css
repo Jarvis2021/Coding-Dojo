@@ -32,7 +32,7 @@ form {
 }
 
 #accountedit {
-  margin-left: 780px;
+  margin-left: 700px;
   font-size: 15px;
   color: #333333;
 }
@@ -87,9 +87,6 @@ form #button1{
     }
   }
 
-  #quotesheader {
-    margin-left: 200px;
-  }
 
   #quotesheader1{
     margin-top: 60px;
@@ -145,7 +142,7 @@ form #button1{
    #likes{
     display: inline-block;
     margin-left: 20px;
-    font-size: 12px;
+    font-size: 14px;
 
    }
 
@@ -160,6 +157,14 @@ form #button1{
      padding: 3px 12px;
      text-align: center;
 
+   }
+
+   #deletequote{
+     margin-top: 2px;
+     margin-left: 10px;
+     font-size: 11px;
+     display: block;
+     color: #333333;
    }
 
    #quotearea1{

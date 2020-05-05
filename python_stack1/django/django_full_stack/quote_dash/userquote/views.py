@@ -1,18 +1,18 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from .models import *
 from django.contrib import messages
 
 
-# Rendering Template
 
 def logandreg(request):
-
     return render(request, 'index.html')
 
 
 def register(request):
 
     print(request.POST)
+
+
     errors = User.objects.basic_validator(request.POST)
 
     if len(errors) > 0:
@@ -21,12 +21,14 @@ def register(request):
             messages.error(request,value)
         return redirect('/')
 
-        new_user = User.objects.create(first_name=request.POST['fname'], last_name= request.POST['lname'],
-        email = request.POST['email'], password=request.POST['pwd'])
-        request.session['user'] = new_user.first_name
-        request.session['id'] = new_user.id
 
-        return redirect('/success')
+    new_user = User.objects.create(first_name=request.POST['fname'], last_name= request.POST['lname'],
+    email = request.POST['email'], password=request.POST['pwd'])
+    request.session['user'] = new_user.first_name
+    request.session['id'] = new_user.id
+
+    return redirect('/quotes')
+
 
 def login(request):
 
@@ -56,17 +58,10 @@ def login(request):
 def quotes(request):
 
     if 'user' not in request.session:
-
         return redirect('/')
-
-    context = {
-
-        'author_quotes': Wall_Quote.objects.all()
-    }
-
+    context = {'author_quotes': Wall_Quote.objects.all()
+               }
     return render(request, 'quotes.html', context)
-
-
 
 
 def process_quote(request):
@@ -99,21 +94,43 @@ def add_like(request,id):
 
 def updateaccount(request,id):
 
-    if 'user' not in request.session:
+    if request.method == "POST":
 
-        return redirect('/')
+        errors = User.objects.edit_validator(request.POST)
 
+        if len(errors) > 0:
 
+            for key, value in errors.items():
+                messages.error(request,value)
+            return render (request,'editaccount.html')
 
-    print("user reached edit page")
+        edit_user = User.objects.get(id=id)
+        edit_user.first_name = request.POST['fname']
+        edit_user.last_name = request.POST['lname']
+        edit_user.email = request.POST['email']
+        edit_user.save()
+        print(edit_user)
+
+        return redirect('/quotes')
+
+def edituser(request,id):
+
+    edit_user = User.objects.get(id=id)
+
+    context = {
+
+        "edit_user_id": edit_user
+    }
 
     return render (request,'editaccount.html')
+
+def destroy(request, id):
+    deleted_post = Wall_Quote.objects.get(id=id)
+    deleted_post.delete()
+    return redirect('/quotes')
 
 
 def logout(request):
     print("user clicked on Logout")
-    print(request.session)
     request.session.flush()
-    print(request.session)
-
     return redirect('/')
