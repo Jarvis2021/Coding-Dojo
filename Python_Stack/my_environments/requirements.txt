@@ -10,7 +10,7 @@ get==2019.4.13
 isort==4.3.21
 itsdangerous==1.1.0
 jedi==0.15.2
-Jinja2==2.10.3
+Jinja2==2.11.3
 lazy-object-proxy==1.4.3
 MarkupSafe==1.1.1
 mccabe==0.6.1
@@ -21,7 +21,7 @@ public==2019.4.13
 pycodestyle==2.5.0
 pydocstyle==5.0.2
 pyflakes==2.1.1
-pylint==2.4.4
+pylint==2.7.4
 pyls==0.1.6
 PyMySQL==0.9.3
 python-jsonrpc-server==0.3.4
