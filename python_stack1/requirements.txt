@@ -7,12 +7,12 @@ Flask==1.1.1
 googlemaps==4.3.1
 idna==2.9
 itsdangerous==1.1.0
-Jinja2==2.11.1
+Jinja2==2.11.3
 MarkupSafe==1.1.1
 prettyprint==0.1.5
 PyMySQL==0.9.3
 pytz==2019.3
-PyYAML==5.3.1
+PyYAML==5.4
 render==1.0.0
 requests==2.23.0
 six==1.15.0
